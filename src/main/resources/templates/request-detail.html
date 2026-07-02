@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: html(content=~{::div})}">
+<body>
+    <div>
+        <h2 th:text="'Review ' + ${request.operationType}"></h2>
+        
+        <div class="card mt-3">
+            <div class="card-header">Request Details</div>
+            <div class="card-body">
+                <p><strong>Target:</strong> <span th:text="${request.sourceTargetNameSnapshot}"></span></p>
+                <p><strong>Dialect:</strong> <span th:text="${request.dialect}"></span></p>
+                <p><strong>Risk Level:</strong> <span class="badge bg-warning text-dark" th:text="${request.riskLevel}"></span></p>
+                <p><strong>Note:</strong> <span th:text="${request.note}"></span></p>
+                <hr/>
+                <h5>Parameters</h5>
+                <pre><code th:text="${request.parameters}"></code></pre>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button class="btn btn-success" hx-post="'/api/change-requests/' + ${request.id} + '/approve'">Approve & Execute</button>
+            <button class="btn btn-danger" hx-post="'/api/change-requests/' + ${request.id} + '/reject'">Reject</button>
+        </div>
+    </div>
+</body>
+</html>

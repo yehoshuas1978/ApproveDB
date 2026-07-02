@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:sqlite:data/approvedb.sqlite
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    url: jdbc:sqlite:data/approvedb.sqlite
+    user: ""
+    password: ""
+  thymeleaf:
+    cache: false

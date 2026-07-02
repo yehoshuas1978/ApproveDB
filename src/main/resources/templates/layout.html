@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ApproveDB</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ApproveDB</a>
+            <span class="navbar-text">
+                <a href="/logout">Logout</a>
+            </span>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div th:replace="${content}"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: html(content=~{::div})}">
+<body>
+    <div>
+        <h2>Pending Approvals</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Target</th>
+                    <th>Operation</th>
+                    <th>Received</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="req : ${requests}">
+                    <td th:text="${req.sourceTargetNameSnapshot}"></td>
+                    <td th:text="${req.operationType}"></td>
+                    <td th:text="${req.receivedAt}"></td>
+                    <td>
+                        <a th:href="@{/requests/{id}(id=${req.id})}" class="btn btn-sm btn-primary">Review</a>
+                    </td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(requests)}">
+                    <td colspan="4" class="text-center text-muted">No pending requests</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
